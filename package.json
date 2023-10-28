@@ -18,5 +18,19 @@
     "sequelize": "^6.33.0",
     "speakeasy": "^2.0.0",
     "util": "^0.12.5"
-  }
+  },
+  "name": "voting",
+  "version": "1.0.0",
+  "main": "app.js",
+
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js",
+     "build":"npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
