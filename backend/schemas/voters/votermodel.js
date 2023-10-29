@@ -33,7 +33,7 @@ voterPasskey:{
 },
 id:{
     type:Sequelize.INTEGER,
-    autoIncreament:true,
+    autoIncrement:true,
     primaryKey:true
 }
 })

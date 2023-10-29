@@ -15,7 +15,7 @@ function Result() {
   const token = Cookie.get("access cookie");
   const [azimioData, setAzimiodata] = useState([]);
   const [udaData, setUdadata] = useState([]);
- const  [countedvoters,setCountedVoters] = useState([])
+  const [countedvoters, setCountedVoters] = useState([]);
   const [rootsData, setRootsdata] = useState([]);
   const [aganoData, setAganodata] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,9 +24,12 @@ function Result() {
   useEffect(() => {
     async function getTotalresults() {
       try {
-        const response = await axios.get("http://localhost:5544/all/votes", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/all/votes",
+          {
+            headers: { Authorization: token },
+          }
+        );
         if (response.data.message === "all votes") {
           setTotalresults(response.data.data);
         } else if (response.data.message === "null votes") {
@@ -50,7 +53,7 @@ function Result() {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:5544/count/votes/azimio",
+          "https://iebc.onrender.com/count/votes/azimio",
           {
             headers: { Authorization: token },
           }
@@ -72,7 +75,8 @@ function Result() {
       }
     }
 
-    getAzimioresults();  nnn
+    getAzimioresults();
+    nnn;
   }, []);
 
   //get uda results
@@ -80,7 +84,7 @@ function Result() {
     async function getUdaresults() {
       try {
         const response = await axios.get(
-          "http://localhost:5544/count/votes/uda",
+          "https://iebc.onrender.com/count/votes/uda",
           {
             headers: { Authorization: token },
           }
@@ -104,7 +108,7 @@ function Result() {
     async function getRootsparty() {
       try {
         const response = await axios.get(
-          "http://localhost:5544/count/votes/roots",
+          "https://iebc.onrender.com/count/votes/roots",
           {
             headers: { Authorization: token },
           }
@@ -129,7 +133,7 @@ function Result() {
     async function getAganovotes() {
       try {
         const response = await axios.get(
-          "http://localhost:5544/count/votes/agano",
+          "https://iebc.onrender.com/count/votes/agano",
           {
             headers: { Authorization: token },
           }
@@ -151,9 +155,12 @@ function Result() {
   useEffect(() => {
     async function fetchAzimiocandidate() {
       try {
-        const response = await axios.get("http://localhost:5544/get/azimio", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/azimio",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setAzimiodata([]);
@@ -172,7 +179,7 @@ function Result() {
   useEffect(() => {
     async function fetchUdacandidate() {
       try {
-        const response = await axios.get("http://localhost:5544/get/uda", {
+        const response = await axios.get("https://iebc.onrender.com/get/uda", {
           headers: { Authorization: token },
         });
 
@@ -193,9 +200,12 @@ function Result() {
   useEffect(() => {
     async function fetchRootsdata() {
       try {
-        const response = await axios.get("http://localhost:5544/get/roots", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/roots",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setRootsdata([]);
@@ -214,9 +224,12 @@ function Result() {
   useEffect(() => {
     async function fetchAganodata() {
       try {
-        const response = await axios.get("http://localhost:5544/get/agano", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/agano",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setAganodata([]);
@@ -231,38 +244,25 @@ function Result() {
     fetchAganodata();
   }, [token]);
 
+  //fetch register voters
+  useEffect(() => {
+    async function fetchRegistredvoters() {
+      try {
+        const response = await axios.get(
+          "https://iebc.onrender.com/count/voters"
+        );
 
-
-
-//fetch register voters
-useEffect(()=>{
-async function fetchRegistredvoters(){
-try {
-  const response = await axios.get("http://localhost:5544/count/voters")
-
-  if(response.data.message==="null voters"){
-  setCountedVoters(response.data.data)
-  }
-  else if(response.data.message==="all voter"){
-   setCountedVoters(response.data.data)
-  }
-} catch (error) {
-  
-  console.log(error)
-}
-}
-fetchRegistredvoters()
-
-
-},[])
-
-
-
-
-
-
-
-
+        if (response.data.message === "null voters") {
+          setCountedVoters(response.data.data);
+        } else if (response.data.message === "all voter") {
+          setCountedVoters(response.data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchRegistredvoters();
+  }, []);
 
   const azimioPercentage = (azimioResults / totalResults) * 100;
   const roundedAzimio = azimioPercentage.toFixed(3);
@@ -292,9 +292,11 @@ fetchRegistredvoters()
         />
 
         <div>
-        <p className="votes"> Total No of Registred Voters are : {countedvoters}</p>
+          <p className="votes">
+            {" "}
+            Total No of Registred Voters are : {countedvoters}
+          </p>
           <p className="votes"> Total No of votes casted : {totalResults}</p>
-        
         </div>
 
         {loading ? (

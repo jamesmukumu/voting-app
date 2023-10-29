@@ -13,7 +13,7 @@ function Passkeylogin() {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5544/post/key", {
+      const response = await axios.post("https://iebc.onrender.com/post/key", {
         voterPasskey: Passkey,
       });
       if (response.data.message === "No matching pass key") {

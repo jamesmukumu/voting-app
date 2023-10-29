@@ -20,9 +20,12 @@ function Castavote() {
     async function fetchAzimiocandidate() {
       setAganodata(true);
       try {
-        const response = await axios.get("http://localhost:5544/get/azimio", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/azimio",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setAzimiodata([]);
@@ -45,7 +48,7 @@ function Castavote() {
   useEffect(() => {
     async function fetchUdacandidate() {
       try {
-        const response = await axios.get("http://localhost:5544/get/uda", {
+        const response = await axios.get("https://iebc.onrender.com/get/uda", {
           headers: { Authorization: token },
         });
 
@@ -69,9 +72,12 @@ function Castavote() {
   useEffect(() => {
     async function fetchRootsdata() {
       try {
-        const response = await axios.get("http://localhost:5544/get/roots", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/roots",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setRootsdata([]);
@@ -93,9 +99,12 @@ function Castavote() {
   useEffect(() => {
     async function fetchAganodata() {
       try {
-        const response = await axios.get("http://localhost:5544/get/agano", {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          "https://iebc.onrender.com/get/agano",
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         if (response.data.message === "Candidate not found") {
           setAganodata([]);
@@ -118,7 +127,7 @@ function Castavote() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5544/post/vote/azimio",
+        "https://iebc.onrender.com/post/vote/azimio",
         {
           vote: "yes",
         },
@@ -140,7 +149,7 @@ function Castavote() {
   async function Voteuda() {
     try {
       const response = await axios.post(
-        "http://localhost:5544/post/vote/uda",
+        "https://iebc.onrender.com/post/vote/uda",
         {
           vote: "yes",
         },
@@ -163,7 +172,7 @@ function Castavote() {
   async function Voteroots() {
     try {
       const response = await axios.post(
-        "http://localhost:5544/post/vote/roots",
+        "https://iebc.onrender.com/post/vote/roots",
         {
           vote: "yes",
         },
@@ -185,7 +194,7 @@ function Castavote() {
   async function Voteagano() {
     try {
       const response = await axios.post(
-        "http://localhost:5544/post/vote/agano",
+        "https://iebc.onrender.com/post/vote/agano",
         {
           vote: "yes",
         },

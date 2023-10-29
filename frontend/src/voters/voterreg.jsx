@@ -15,13 +15,16 @@ function Registervoter() {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5544/post/voter", {
-        firstName: Firstname,
-        secondName: Secondname,
-        phoneNumber: Phonenumber,
-        idNumber: Id,
-        email: Email,
-      });
+      const response = await axios.post(
+        "https://iebc.onrender.com/post/voter",
+        {
+          firstName: Firstname,
+          secondName: Secondname,
+          phoneNumber: Phonenumber,
+          idNumber: Id,
+          email: Email,
+        }
+      );
 
       if (response.data.message === "voter registration pass") {
         setLoading(false);
