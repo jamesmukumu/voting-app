@@ -32,7 +32,17 @@
 .caution p{
   padding-bottom: 20px;
 }
-
+.votes{
+  color: green;
+  font-size: 17.3333px;
+  font-weight: bolder;
+}
+.votesspan{
+  color: black;
+}
+.voteresults{
+  text-align: center;
+}
 .error{
   color: red;
   font-size: 21.333px;
@@ -89,10 +99,13 @@ margin-bottom: 20px;
  background-color: rgba(0, 128, 0, 0.738);
  cursor: pointer;
 }
-/* TableComponent.css */
 
-.table-container {
-text-align: left;
+
+.table-containerr {
+display: flex;
+align-items: center;
+justify-content: center;
+
 
 }
 

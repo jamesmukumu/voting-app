@@ -12,12 +12,12 @@ secondName:{
     allowNull:false
 },
 phoneNumber:{
-    type:Sequelize.INTEGER,
+    type:Sequelize.TEXT,
     allowNull:false,
     unique:true
 },
 idNumber:{
-    type:Sequelize.INTEGER,
+    type:Sequelize.TEXT,
     allowNull:false,
     unique:true
 },
@@ -36,4 +36,4 @@ voterPasskey:{
 sequelize.sync()
 
 
-module.exports = Voter
+module.exports = Voter 

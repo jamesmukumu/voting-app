@@ -76,7 +76,7 @@ function Result() {
     }
 
     getAzimioresults();
-    nnn;
+    
   }, []);
 
   //get uda results
@@ -249,7 +249,8 @@ function Result() {
     async function fetchRegistredvoters() {
       try {
         const response = await axios.get(
-          "https://iebc.onrender.com/count/voters"
+          "https://iebc.onrender.com/count/voters",
+          {headers:{Authorization:token}}
         );
 
         if (response.data.message === "null voters") {
@@ -277,8 +278,8 @@ function Result() {
   const roundedagano = aganoPercentage.toFixed(3);
 
   return (
-    <div className="table-container">
-      <div className="rules">
+    <div className="table-containerr">
+      <div className="voteresults">
         <p style={{ fontFamily: "'Gabarito',sans-serif" }}>
           &copy;James Mukumu 2023
         </p>
@@ -293,10 +294,10 @@ function Result() {
 
         <div>
           <p className="votes">
-            {" "}
-            Total No of Registred Voters are : {countedvoters}
+            
+            Total No of Registred Voters are : <span className="votesspan">{countedvoters}</span>
           </p>
-          <p className="votes"> Total No of votes casted : {totalResults}</p>
+          <p className="votes"> Total No of votes casted : <span className="votesspan">{totalResults}</span></p>
         </div>
 
         {loading ? (
