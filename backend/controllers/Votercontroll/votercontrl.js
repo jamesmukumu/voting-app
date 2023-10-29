@@ -69,7 +69,7 @@ async function postVoterandsentvoterpasskey(req, res) {
       from: process.env.user,
       to: inputemail,
       subject: "Your PassKey",
-      html: `Thanks For registering to the PJ voting system.Your voter passkey is <span style="color:green;">${voter.voterPasskey}</span> and is valid for only one HR.In God we trust`,
+      html: `Thanks For registering to the PJ voting system.Your voter passkey is <span style="color:green;">${voter.voterPasskey}</span> and is valid for only one HR.<a href="https://iebc-1576e.web.app/">Vote here</a>`,
     };
     transpoter.sendMail(mailoptions);
 
