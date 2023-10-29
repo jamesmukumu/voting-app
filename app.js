@@ -11,7 +11,7 @@ db.sequelize.sync()
     console.log("Connected to Db successfully")
 })
 .catch((error)=>{
-console.log(error)
+console.log(error) 
 })
 
 app.use(express.json())
