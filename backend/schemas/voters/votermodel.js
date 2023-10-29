@@ -31,11 +31,7 @@ voterPasskey:{
     allowNull:false,
     unique:true
 },
-id:{
-    type:Sequelize.INTEGER,
-    autoIncrement:true,
-    primaryKey:true
-}
+
 })
 sequelize.sync()
 
